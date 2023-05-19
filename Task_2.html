@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Symulacja sygnalizacji świetlnej</title>
+    <style>
+        .element {
+            width: 200px;
+            height: 50px;
+            margin-bottom: 10px;
+            background-color: bisque;
+            cursor: pointer;
+        }
+
+        .element.clicked {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="element" onclick="changeColor(1)"></div>
+    <div class="element" onclick="changeColor(2)"></div>
+    <div class="element" onclick="changeColor(3)"></div>
+
+    <script>
+        let activeElement = null;
+
+        function changeColor(elementNumber) {
+            const element = document.getElementsByClassName('element')[elementNumber - 1];
+
+            if (activeElement !== null) {
+                activeElement.classList.remove('clicked');
+            }
+
+            element.classList.add('clicked');
+            activeElement = element;
+        }
+    </script>
+</body>
+
+</html>
